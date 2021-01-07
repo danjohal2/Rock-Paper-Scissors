@@ -31,7 +31,9 @@
             let cs = computerPlay();
             
             if (ps == cs) {
-            		console.log(`It's a tie!`);
+            		playerCount += 0;
+                computerCount += 0;
+                alert(`It's a tie! You both chose ${ps}. Player Score: ${playerCount}, Computer Score: ${computerCount}`);
             } else if ((ps == "rock" && cs == "scissors") || (ps == "paper" && cs == "rock") || (ps == "scissors" && cs == "paper")) {
                     playerCount++;
                   
@@ -50,13 +52,14 @@
         function game() {
             for (let i = 0; i < 5; i++) {
             playRound();
-            if (playerCount == 3) {
-            		alert(`You beat the computer!`);
-            } else if (computerCount == 3) {
-            		alert(`The computer beat you!`);
             }
+            if (playerCount == 3 && computerCount == 3) {
+            		alert(`It's a tie!`);
+            } else if (playerCount > computerCount) {
+            		alert(`You win!`);
+            } else if (computerCount > playerCount) {
+            		alert(`You lose!`);
             }
-            
             
             }
 
