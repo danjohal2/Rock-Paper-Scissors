@@ -1,11 +1,45 @@
- <script>
-     //Options for computer to choose from
-     const choices = ["ROCK", "PAPER", "SCISSORS"];
+<head>
+</head>
+<body>
+    <script>
+        //Computer random choice selector
+        function computerPlay() {
+            let choices = ["rock", "paper", "scissors"];
+            return computerSelection = choices[Math.floor(Math.random() * choices.length)]
+        }
 
-     //Computer chooses random option
-     function computerPlay() {
-        let random = choices[Math.floor(Math.random()*choices.length)];
-        return choices[random];
-     }
- </script>
+        //Player choice selector
+        
+        function playerPlay() {
+        let playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
+            if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+                return playerSelection;
+            } else {
+            		return playerPlay();
+                }
+        }
+        
+        
+        //Function for one round of Paper, Rock , Scissors
+        let playRound = function(playerSelection, computerSelection) {
+        		let playerCount = 0;
+            let computerCount = 0;
+            let ps = playerPlay();
+            let cs = computerPlay();
+            
+            if (ps == cs) {
+            		console.log(`It's a tie!`);
+            } else if ((ps == "rock" && cs == "scissors") || (ps == "paper" && cs == "rock") || (ps == "scissors" && cs == "paper")) {
+            		playerCount++;
+                console.log(`You won! ${ps} beats ${cs}`);
+        		} else {
+            		computerCount++;
+                console.log(`You lose! ${cs} beats ${ps}`);
+            }
+					console.log(`Current Score: Player has ${playerCount}. Computer has ${computerCount}.`)
+}
 
+console.log(playRound())
+
+    </script>
+</body>
