@@ -2,6 +2,11 @@
 </head>
 <body>
     <script>
+        //Score Variables
+        let playerCount = 0;
+        let computerCount = 0;
+
+        
         //Computer random choice selector
         function computerPlay() {
             let choices = ["rock", "paper", "scissors"];
@@ -21,25 +26,41 @@
         
         
         //Function for one round of Paper, Rock , Scissors
-        let playRound = function(playerSelection, computerSelection) {
-        		let playerCount = 0;
-            let computerCount = 0;
+        function playRound(playerSelection, computerSelection) {
             let ps = playerPlay();
             let cs = computerPlay();
             
             if (ps == cs) {
             		console.log(`It's a tie!`);
             } else if ((ps == "rock" && cs == "scissors") || (ps == "paper" && cs == "rock") || (ps == "scissors" && cs == "paper")) {
-            		playerCount++;
-                console.log(`You won! ${ps} beats ${cs}`);
+                    playerCount++;
+                  
+                alert(`You won! ${ps} beats ${cs}. Player Score: ${playerCount}, Computer Score: ${computerCount}`);
+             
         		} else {
-            		computerCount++;
-                console.log(`You lose! ${cs} beats ${ps}`);
+                    computerCount++;
+                  
+                alert(`You lose! ${cs} beats ${ps}. Player Score: ${playerCount}, Computer Score: ${computerCount}`);
+               
             }
-					console.log(`Current Score: Player has ${playerCount}. Computer has ${computerCount}.`)
+			
+   
 }
+        //function to play game to best of 3
+        function game() {
+            for (let i = 0; i < 5; i++) {
+            playRound();
+            if (playerCount == 3) {
+            		alert(`You beat the computer!`);
+            } else if (computerCount == 3) {
+            		alert(`The computer beat you!`);
+            }
+            }
+            
+            
+            }
 
-console.log(playRound())
+            game()
 
     </script>
 </body>
