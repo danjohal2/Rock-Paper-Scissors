@@ -1,4 +1,6 @@
 # Rock-Paper-Scissors
-I will be using my newly learned javascript skills to develop a paper rock scissors game.
-I will not be using an loops even though I know them at this time to keep this code simple.
-I will be playing against a computer up to a total of 5.
+I made a rock paper scissors game
+I gave the computer a function to randomly select it's choce
+Since there is no UI at this time, the game uses the alert option to play the game
+The game function runs 5 rounds and the winner is chosen
+I implemented a simple loop to run the game 5 times and incorporated if statements to determine the winner.
